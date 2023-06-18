@@ -27,9 +27,25 @@ li a{
     text-decoration: none;
 }
 
-.b1{
-    background-color: #8d2be2;
-}
-.b1{
-    background-color: #ffffff;
-}
+.nav-link {
+    text-decoration: none;
+  }
+
+  .search-input-container {
+    position: relative;
+    display: inline-block;
+    top: -30%;
+  }
+  
+  .search-input {
+    padding-left: 30px; /* Ajuste la valeur en fonction de la taille de l'icône */
+  }
+  
+  .search-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #888;
+  }
+  

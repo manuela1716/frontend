@@ -9,29 +9,50 @@ const CreatePerso = () => {
     const [sexePerso, setsexe] = useState('');
     const [telPerso, settel] = useState('');
     const [diplomePerso, setDiplome] = useState('');
-    const [imagePerso, setimage] = useState('');
+    const [imagePerso, setimage] = useState(null);
   
-    const handleSubmit = (e) => {
+    async function handleSubmit(e) {
       e.preventDefault();
+      
+      const formData = new FormData();
+
+      formData.append('nomPerso', nomPerso);
+      formData.append('prenomPerso', prenomPerso);
+      formData.append('emailPerso', emailPerso);
+      formData.append('sexePerso', sexePerso);
+      formData.append('telPerso', telPerso);
+      formData.append('diplomePerso', diplomePerso);
+      formData.append('imagePerso', imagePerso);
+
+      // const newPerso = {
+      //   nomPerso,
+      //   prenomPerso,
+      //   emailPerso,
+      //   sexePerso,
+      //   telPerso,
+      //   diplomePerso,
+      //   imagePerso
+      // };
   
-      const newPerso = {
-        nomPerso,
-        prenomPerso,
-        emailPerso,
-        sexePerso,
-        telPerso,
-        diplomePerso,
-        imagePerso
-      };
-  
-      axios
-        .post('http://localhost:8000/admin', newPerso)
-        .then((res) => {
-          console.log('Personnel crée');
-        })
-        .catch((err) => {
-          console.error(err);
+      // axios
+      //   .post('http://localhost:8000/personnel', newPerso)
+      //   .then((res) => {
+      //     console.log('Personnel crée');
+      //   })
+      //   .catch((err) => {
+      //     console.error(err);
+      //   });
+
+      try {
+        await axios.post('http://localhost:8000/personnel', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data', // définir le type de contenu pour les fichiers
+          },
         });
+        console.log('Personnel crée');
+      } catch (err) {
+        console.error(err);
+      }
     };
     return (
         <main className='container mt-5'>
@@ -41,7 +62,7 @@ const CreatePerso = () => {
               </div>
               <div className="col-lg-8">
                 <h2 className='text-center fw-5 fs-3 mb-3'>Créer Un Personnel</h2>
-                <form action="/CreatePerso" method="post">
+                <form onSubmit={handleSubmit}>
                   <div className="mb-3">
                     <label for="nom" className="form-label">Entrer Votre Nom:</label>
                     <input type="text" className="form-control" id="nom" name='nom' value={nomPerso}
@@ -86,8 +107,7 @@ const CreatePerso = () => {
                   <div className="mb-3">
                     <label for="file" className="form-label">Choisir Un Fichier Image</label>
                     <input className="form-control" type="file" id="file" name='file' value={imagePerso}
-            onChange={(e) => setimage(e.target.files[0])} 
-            accept=".jpg,.png,.apng,.avif,.gif,.jpeg, .jfif, .pjpeg, .pjp,.svg,.webp"/>
+            onChange={(e) => setimage(e.target.files[0])}/>
                   </div>
                   <button type="submit" className='btn btn-primary w-50'>Créer</button>
                 </form>

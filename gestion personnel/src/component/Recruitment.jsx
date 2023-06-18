@@ -6,35 +6,36 @@ import { NavLink } from "react-router-dom";
 const Recruitment = () => {
     return (
         <main className="container">
-            <div className="row d-flex justify-content-center">
+            <div className="row d-flex justify-content-center mb-3">
                 
-                <div className="col-lg-2">
+                <div className="col-md-2">
                 </div>
-                <div className="col-lg-10">
-                    
+                <div className="col-md-10 mt-5">
                     <div className="row d-flex">
+                        <div class="mb-3">
                         <BsFilter className="me-2"/>Filtre Par :
-                        <div class="mb-3 w-25">
-                            <label for="prenom" class="form-label">Prénom</label>
+                        </div>
+                        <div class="mb-3 w-25 d-flex">
+                            <label for="prenom" class="form-label me-2">Prénom</label>
                             <input type="text" class="form-control" id="prenom"/>
                         </div>
-                        <div class="mb-3 w-25">
-                            <label for="poste" class="form-label">Poste</label>
+                        <div class="mb-3 w-25 d-flex">
+                            <label for="poste" class="form-label me-2">Poste</label>
                             <input type="text" class="form-control" id="poste"/>
                         </div>
-                        <div class="mb-3 w-25">
-                            <label for="diplome" class="form-label">Diplome</label>
+                        <div class="mb-3 w-25 d-flex">
+                            <label for="diplome" class="form-label me-2">Diplome</label>
                             <input type="text" class="form-control" id="diplome"/>
                         </div>
-                        <div class="mb-3 w-25">
+                        <div class="mb-3 w-25 d-flex">
                             <button type="submit" class="btn btn-primary me-2">Chercher</button>
                             <button type="submit" class="btn btn-warning"><AiFillPrinter className="me-2" />Imprimer</button>
                         </div>
                         
                     </div>
-                    <div className="row bg-warning w-100 my-3">
+                    <div className="row bg-warning w-100 my-3 p-3">
                         <p className="fs-3 fw-5">Liste du Personnel</p>
-                        <NavLink to="/CreatePerso"><IoAddCircleOutline className="me-2 text-dark"/>Ajouter un Personnel</NavLink>
+                        <NavLink to="/CreatePerso" className="nav-link"><IoAddCircleOutline className="me-2 text-dark"/>Ajouter un Personnel</NavLink>
                     </div>
                     <div className="row d-flex justify-content-center">
                         <table>

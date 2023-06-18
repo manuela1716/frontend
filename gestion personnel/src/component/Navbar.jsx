@@ -6,9 +6,8 @@ import { GiProgression } from "react-icons/gi";
 import { IoBagRemoveSharp } from "react-icons/io5";
 import { FaMoneyBillAlt } from "react-icons/fa";
 import { BsUmbrellaFill } from "react-icons/bs";
-import { AiOutlineSearch } from "react-icons/ai";
+import { FiSearch } from "react-icons/fi";
 import { AiOutlineUser } from "react-icons/ai";
-import { BsGearWideConnected } from "react-icons/bs";
 
 import {BsFilter} from "react-icons/bs"
 import {AiFillPrinter} from "react-icons/ai"
@@ -59,13 +58,10 @@ const Navbar = () => {
                                 <p className="fs-5 fw-5 mx-5">HTTC ERP un système de gestion scolaire</p>
                             </ul>
                             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                                <form className="d-flex px-3" role="search">
-                                    <input className="form-control" type="search" placeholder="Search"/>
-                                    <AiOutlineSearch size={28}/>
-                                </form>
-                                <li className="px-3">
-                                    <BsGearWideConnected  size={28}/>
-                                </li>
+                                <div className="search-input-container">
+                                    <NavLink className="nav-link"><FiSearch className="search-icon" size={28}/></NavLink>
+                                    <input type="text" className="search-input form-control" placeholder="Rechercher" />
+                                </div>
                                 <li className="px-3">
                                 <button className="btn btn-outline-secondary" type="submit"><AiOutlineUser  size={28} className="me-2"/>Admin</button>
                                 </li>
